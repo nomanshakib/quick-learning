@@ -1,4 +1,4 @@
-import { isCursorAtEnd } from '@testing-library/user-event/dist/utils';
+// import { isCursorAtEnd } from '@testing-library/user-event/dist/utils';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CourseItem from './common/CourseItem';

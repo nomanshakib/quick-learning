@@ -13,52 +13,63 @@ const { default: Faq } = require("../../Pages/Faq");
 const { default: Home } = require("../../Pages/Home");
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main />,
-        errorElement: <ErrorPage />,
-        children: [
-            {
-                path: '/home',
-                element: <Home />
-            },
-            {
-                path: '/',
-                element: <Home />
-            },
-            {
-                path: '/courses',
-                element: <Courses />,
-                loader: () => fetch('http://localhost:5000/courses'),
-            },
-            {
-                path: '/faq',
-                element: <Faq />
-            },
-            {
-                path: '/blog',
-                element: <Blog />
-            },
-            {
-                path: '/register',
-                element: <Register />
-            },
-            {
-                path: '/login',
-                element: <Login />
-            },
-            {
-                path: '/courses/:id',
-                element: <CourseDetails/>,
-                loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
-            },
-            {
-                path: 'checkout/:id',
-                element: <PrivateRoute><Checkout/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
-            }
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Main />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/courses",
+        element: <Courses />,
+        loader: () =>
+          fetch("https://quick-learning-server-side.vercel.app/courses"),
+      },
+      {
+        path: "/faq",
+        element: <Faq />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/courses/:id",
+        element: <CourseDetails />,
+        loader: ({ params }) =>
+          fetch(
+            `https://quick-learning-server-side.vercel.app/courses/${params.id}`
+          ),
+      },
+      {
+        path: "checkout/:id",
+        element: (
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://quick-learning-server-side.vercel.app/courses/${params.id}`
+          ),
+      },
+    ],
+  },
+]);
 
 export default router;

@@ -1,0 +1,22 @@
+
+*{
+    box-sizing: border-box;
+}
+
+.c-img{
+    width: initial!important;
+    height: initial!important;
+}
+.active{
+    color: blue;
+}
+
+
+
+.bg-img{
+    background-image: linear-gradient(329deg, #161616 0%, rgba(57, 4, 248, 0) 100%);
+}
+.dropdown .dropdown-content{
+    top: 65px!important;
+    right: 0!important;
+}
